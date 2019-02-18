@@ -14,6 +14,11 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json", ".css", ".scss"]
     },
+    
+    optimization: {
+		// We no not want to minimize our code.
+		minimize: false
+	},
 
     module: {
         rules: [

@@ -1,5 +1,28 @@
-$primary-color: red;
 .app {
-    background-color: yellow;
-    color: $primary-color;
-}
+    background: #209cee;
+    padding: 30px;
+    margin-right: 20px;
+  }
+  
+  .todo-list {
+    background: #e8e8e8;
+    border-radius: 4px;
+    padding: 5px;
+    max-width: 400px;
+  }
+  
+  .todo {
+    background: #fff;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    padding: 3px 10px;
+    font-size: 12px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .todo-input {
+    width: 100%;
+  }
