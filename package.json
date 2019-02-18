@@ -1,0 +1,46 @@
+{
+  "name": "react-hooks-todo-app",
+  "version": "1.0.0",
+  "description": "todo app using react hooks",
+  "main": "dist/index.js",
+  "scripts": {
+    "install": "npm install",
+    "build": "webpack",
+    "build-watch": "webpack -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachingupta/react-typescript-webpack-boilerplate.git"
+  },
+  "keywords": [
+    "reactJS",
+    "TypeScript",
+    "Webpack",
+    "NPM"
+  ],
+  "author": "sachin gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sachingupta/react-typescript-webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/sachingupta/react-typescript-webpack-boilerplate#readme",
+  "dependencies": {
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.22.1",
+    "typescript": "^3.0.1",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
