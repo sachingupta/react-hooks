@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import { ITodo } from "../components/IApp";
 import { TodoListRenderer } from "../components/TodoList";
 import * as Styles from "../components/App.scss";
@@ -8,12 +9,19 @@ interface IHooksAppProps {
   todos: ITodo[];
 }
 
-export const HooksApp = (props: IHooksAppProps) => {
-  const { todos } = props;
+export const HooksTodoApp = (props: IHooksAppProps) => {
+  const [todos, setTodos] = useState(props.todos);
+
+  const addTodo = (todoText: string) => {
+    const todo: ITodo = {text: todoText};
+    const newTodos = [...todos, todo];
+    setTodos(newTodos);
+ }
+
   return (
     <div className={Styles.app}>
       <TodoListRenderer todos={todos} />
-      <TodoFormContainer />
+      <TodoFormContainer addTodo={addTodo}/>
     </div>
   );
 }
