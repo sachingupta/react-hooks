@@ -4,7 +4,7 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/public/dist"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -14,11 +14,25 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json", ".css", ".scss"]
     },
-    
+
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        filename: 'index.html',
+        compress: true,
+        port: 9000,
+        historyApiFallback: {
+            index: 'index.html'
+          },
+        open: true,
+        inline: true,
+        hot: true,
+        noInfo: true
+    },
+
     optimization: {
-		// We no not want to minimize our code.
-		minimize: false
-	},
+        // We no not want to minimize our code.
+        minimize: false
+    },
 
     module: {
         rules: [

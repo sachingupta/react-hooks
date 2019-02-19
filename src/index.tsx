@@ -7,7 +7,7 @@ import * as Styles from "./components/App.scss";
 import { ClassTodoApp } from "./class-app/App";
 
 const todos: ITodo[] = [
-    { text: "Learn about React" },
+    { text: "Learn1204 about React" },
     { text: "Meet friend for lunch" },
     { text: "Build really cool todo app" }
 ]
