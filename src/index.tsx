@@ -2,8 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { ITodo } from "./components/IApp";
-import { HooksApp } from "./hooks-app/App";
-import { todo } from "./components/App.scss";
+import { HooksTodoApp } from "./hooks-app/App";
+import * as Styles from "./components/App.scss";
 import { ClassTodoApp } from "./class-app/App";
 
 const todos: ITodo[] = [
@@ -25,12 +25,13 @@ const TodoApp = (props: ITodoAppProps) => {
                 <th>ToDo App Using Hooks </th>
             </tr>
             <tr>
-                <td>
-                    <HooksApp todos={todos} />
-                </td>
-                <td>
+                <td className={Styles.tableCell}>
                     <ClassTodoApp todos={todos} />
                 </td>
+                <td className={Styles.tableCell}>
+                    <HooksTodoApp todos={todos} />
+                </td>
+
             </tr>
         </table>
         </div>
