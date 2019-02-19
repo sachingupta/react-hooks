@@ -1,8 +1,7 @@
 import * as React from "react";
-import { ITodo } from "../components/IApp";
+import { ITodo } from "./IApp";
 
-import { Todo } from "../components/Todo";
-import { todo } from "../components/App.scss";
+import { Todo } from "./Todo";
 
 interface ITodoListRendererProps {
     todos: ITodo[];
