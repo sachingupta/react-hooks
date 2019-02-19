@@ -18,9 +18,21 @@ export const HooksTodoApp = (props: IHooksAppProps) => {
     setTodos(newTodos);
  }
 
+ const completeTodo = (index: number) => {
+  const newTodos = [...todos];
+  newTodos[index].isCompleted = true;
+  setTodos(newTodos);
+}
+
+const removeTodo = (index: number) => {
+  const newTodos = [...todos];
+  newTodos.splice(index, 1);
+  setTodos(newTodos);
+}
+
   return (
     <div className={Styles.app}>
-      <TodoListRenderer todos={todos} />
+      <TodoListRenderer todos={todos} onComplete={completeTodo} onRemove={removeTodo} />
       <TodoFormContainer addTodo={addTodo}/>
     </div>
   );

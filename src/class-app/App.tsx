@@ -27,11 +27,23 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
      this.setState({todos: newTodos});
   }
 
+  private completeTodo(index: number) {
+    const newTodos = [...this.state.todos];
+    newTodos[index].isCompleted = true;
+    this.setState({todos: newTodos});
+ }
+
+  private removeTodo(index: number) {
+    const newTodos = [...this.state.todos];
+    newTodos.splice(index, 1);
+    this.setState({todos: newTodos});
+ }
+
   render() {
     const { todos } = this.state;
     return (
       <div className={Styles.app}>
-        <TodoListRenderer todos={todos} />
+        <TodoListRenderer todos={todos} onComplete={this.completeTodo.bind(this)} onRemove={this.removeTodo.bind(this)} />
         <TodoFormContainer addTodo={this.addTodo.bind(this)} />
       </div>
     );

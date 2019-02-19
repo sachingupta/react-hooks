@@ -3,7 +3,10 @@ import { ITodo } from "./IApp";
 import * as Styles from "./App.scss"; 
 
 interface ITodoProps {
+    index: number;
     todo: ITodo;
+    onComplete: (index: number) => void;
+    onRemove: (index: number) => void;
 }
 
 export const Todo = (props: ITodoProps) => {
@@ -16,8 +19,8 @@ export const Todo = (props: ITodoProps) => {
           {todo.text}
     
           <div>
-            <button>Complete</button>
-            <button>x</button>
+            <button onClick={() => { props.onComplete(props.index) }}>Complete</button>
+            <button onClick={() => { props.onRemove(props.index) }}>x</button>
           </div>
         </div>
       );
