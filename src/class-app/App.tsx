@@ -4,6 +4,8 @@ import { ITodo } from "../components/IApp";
 import { TodoFormContainer } from "./TodoFormContainer";
 import { TodoListRenderer } from "../components/TodoList";
 import * as Styles from "../components/App.scss"; 
+import { themes, ThemeContext, ThemeContext2 } from "./ThemeContext";
+import { Toolbar, Toolbar2, Toolbar3 } from "./ToolBar";
 
 interface IHooksAppProps {
   todos: ITodo[];
@@ -11,13 +13,17 @@ interface IHooksAppProps {
 
 interface IHooksAppState {
   todos: ITodo[];
+  theme: any;
+  toggleTheme: () => void
 }
 
 export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState> {
   constructor(props: IHooksAppProps) {
      super(props);
      this.state = {
-      todos: this.props.todos
+      todos: this.props.todos,
+      theme: themes.light,
+      toggleTheme: this.toggleTheme.bind(this)
     }
   }
 
@@ -39,10 +45,28 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
     this.setState({todos: newTodos});
  }
 
+ private toggleTheme() {
+  this.setState(state => ({
+    theme:
+      state.theme === themes.dark
+        ? themes.light
+        : themes.dark,
+  }));
+ }
+
   render() {
     const { todos } = this.state;
     return (
       <div className={Styles.app}>
+        <ThemeContext.Provider value={this.state.theme}>
+          <Toolbar changeTheme={this.toggleTheme.bind(this)} />
+        </ThemeContext.Provider>
+        <ThemeContext2.Provider value={this.state}>
+          <Toolbar2 />
+        </ThemeContext2.Provider>
+        <ThemeContext2.Provider value={this.state}>
+          <Toolbar3 />
+        </ThemeContext2.Provider>
         <TodoListRenderer todos={todos} onComplete={this.completeTodo.bind(this)} onRemove={this.removeTodo.bind(this)} />
         <TodoFormContainer addTodo={this.addTodo.bind(this)} />
       </div>

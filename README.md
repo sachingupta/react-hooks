@@ -22,4 +22,8 @@ https://reactjs.org/docs/hooks-intro.html
 https://www.youtube.com/watch?v=mxK8b99iJTg
 https://www.youtube.com/watch?v=dpw9EHDh2bM
 
+# react-hooks todo app V2
+It has V1 + How to use react context API base on this tutorial
+https://reactjs.org/docs/context.html#when-to-use-context
+
 
