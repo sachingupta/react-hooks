@@ -56,7 +56,7 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
     }));
 
     this.setState(state => ({
-          toggleThemeCount: this.state.toggleThemeCount + 1
+      toggleThemeCount: this.state.toggleThemeCount + 1
     }));
   }
 
@@ -65,7 +65,7 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
     document.title = `You clicked class-app themChange button ${this.state.toggleThemeCount} times`;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: IHooksAppProps, prevState: IHooksAppState) {
     /*
        Note how we have to duplicate the code between these two lifecycle methods in class.
        This is because in many cases we want to perform the same side effect regardless of whether the 
@@ -73,7 +73,9 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
        we want it to happen after every render — but React class components don’t have a method like this.
        We could extract a separate method but we would still have to call it in two places. 
     */
-    document.title = `You clicked class-app themChange button ${this.state.toggleThemeCount} times`;
+    if (prevState.toggleThemeCount !== this.state.toggleThemeCount) {
+      document.title = `You clicked class-app themChange button ${this.state.toggleThemeCount} times`;
+    }
   }
 
   render() {

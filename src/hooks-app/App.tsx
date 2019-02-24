@@ -50,8 +50,13 @@ export const HooksTodoApp = (props: IHooksAppProps) => {
        In the uncommon cases where they do (such as measuring the layout), 
        there is a separate useLayoutEffect Hook with an API identical to useEffect. 
     */
+   /*React to skip applying an effect if certain values haven’t changed between re-renders. 
+     To do so, pass an array as an optional second argument to useEffect: */
     document.title = `You clicked hooks-app themChange button ${toggleThemeCount} times`;
-  });
+    /*
+     If your effect returns a function, React will run it when it is time to clean up:
+    */
+  }, [toggleThemeCount]);
 
   return (
     <div className={Styles.app}>
