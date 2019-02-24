@@ -11,7 +11,7 @@ export class ThemedButton2 extends React.Component<{}, {}> {
             {({ theme, toggleTheme }) => (
                 <button
                     onClick={toggleTheme}
-                    style={{ backgroundColor: theme.background }}>
+                    style={{ backgroundColor: theme.background,  color: theme.color }}>
                     Toggle Theme 2
           </button>
             )}
@@ -25,7 +25,7 @@ export function ThemedButton3() {
         {({ theme, toggleTheme }) => (
             <button
                 onClick={toggleTheme}
-                style={{ backgroundColor: theme.background }}>
+                style={{ backgroundColor: theme.background,  color: theme.color }}>
                 Toggle Theme 3
       </button>
         )}

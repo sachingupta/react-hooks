@@ -6,7 +6,7 @@ import { ThemedButton2, ThemedButton3 } from "./ThemedButton2";
 export function Toolbar(props: any) {
     return (
       <ThemedButton onClick={props.changeTheme}>
-        Change Theme
+        Toggle Theme
       </ThemedButton>
     );
   }

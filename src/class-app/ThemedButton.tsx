@@ -12,7 +12,7 @@ class ThemedButton extends React.Component<IThemedButtonProps, {}> {
     render() {
         const props = this.props;
         const theme = this.context;
-        return (<button {...props} style={{ backgroundColor: theme.background }}
+        return (<button {...props} style={{ backgroundColor: theme.background, color: theme.color }}
         />);
     }
 }
