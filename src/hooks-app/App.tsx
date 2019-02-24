@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ITodo } from "../components/IApp";
 import { TodoListRenderer } from "../components/TodoList";
 import * as Styles from "../components/App.scss";
@@ -14,6 +14,7 @@ interface IHooksAppProps {
 export const HooksTodoApp = (props: IHooksAppProps) => {
   const [todos, setTodos] = useState(props.todos);
   const [theme, setTheme] = useState(themes.light);
+  const [toggleThemeCount, setToggleThemeCount] = useState(0);
 
   const addTodo = (todoText: string) => {
     const todo: ITodo = { text: todoText };
@@ -36,7 +37,21 @@ export const HooksTodoApp = (props: IHooksAppProps) => {
   const toggleTheme = () => {
     const newTheme = (theme === themes.dark ? themes.light : themes.dark);
     setTheme(newTheme);
+    setToggleThemeCount(toggleThemeCount + 1);
   }
+
+  useEffect(() => {
+  /*
+    - By using this Hook, you tell React that your component needs to do something after render
+    - by default useEffect run after every render
+    - Unlike componentDidMount or componentDidUpdate,
+     effects scheduled with useEffect don’t block the browser from updating the screen. This makes your app feel more responsive.
+      The majority of effects don’t need to happen synchronously.
+       In the uncommon cases where they do (such as measuring the layout), 
+       there is a separate useLayoutEffect Hook with an API identical to useEffect. 
+    */
+    document.title = `You clicked hooks-app themChange button ${toggleThemeCount} times`;
+  });
 
   return (
     <div className={Styles.app}>

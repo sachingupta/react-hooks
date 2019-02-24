@@ -12,6 +12,7 @@ interface IHooksAppProps {
 }
 
 interface IHooksAppState {
+  toggleThemeCount: number;
   todos: ITodo[];
   theme: any;
   toggleTheme: () => void;
@@ -21,6 +22,7 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
   constructor(props: IHooksAppProps) {
     super(props);
     this.state = {
+      toggleThemeCount: 0,
       todos: this.props.todos,
       theme: themes.light,
       toggleTheme: this.toggleTheme.bind(this)
@@ -52,6 +54,26 @@ export class ClassTodoApp extends React.Component<IHooksAppProps, IHooksAppState
           ? themes.light
           : themes.dark,
     }));
+
+    this.setState(state => ({
+          toggleThemeCount: this.state.toggleThemeCount + 1
+    }));
+  }
+
+  componentDidMount() {
+    // manual DOM mutations
+    document.title = `You clicked class-app themChange button ${this.state.toggleThemeCount} times`;
+  }
+
+  componentDidUpdate() {
+    /*
+       Note how we have to duplicate the code between these two lifecycle methods in class.
+       This is because in many cases we want to perform the same side effect regardless of whether the 
+       component just mounted, or if it has been updated. Conceptually, 
+       we want it to happen after every render — but React class components don’t have a method like this.
+       We could extract a separate method but we would still have to call it in two places. 
+    */
+    document.title = `You clicked class-app themChange button ${this.state.toggleThemeCount} times`;
   }
 
   render() {

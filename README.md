@@ -23,9 +23,11 @@ https://www.youtube.com/watch?v=mxK8b99iJTg
 https://www.youtube.com/watch?v=dpw9EHDh2bM
 
 #About this app
-1. How to use state and React useState Hooks
+1. How to use state and React useState Hook
 https://reactjs.org/docs/hooks-state.html
-2. How to use context, Context.Provider, Context.Consumer and React useContext Hooks
+2. How to use context, Context.Provider, Context.Consumer and React useContext Hook
 https://reactjs.org/docs/context.html#consuming-multiple-contexts
 https://reactjs.org/docs/hooks-reference.html#usecontext
 https://www.telerik.com/blogs/how-to-use-basic-react-hooks-for-context
+3. How to use useEffect Hook
+https://reactjs.org/docs/hooks-effect.html
